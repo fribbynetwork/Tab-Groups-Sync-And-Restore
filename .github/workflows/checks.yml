@@ -1,0 +1,64 @@
+name: checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm install --no-save eslint@9
+      - run: npx eslint .
+
+  manifest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: manifest and locales are valid JSON
+        run: |
+          for f in extension/manifest.json extension/_locales/*/messages.json; do
+            python3 -c "import json,sys; json.load(open('$f'))" || exit 1
+          done
+      - name: locales carry the same keys
+        run: |
+          python3 - <<'PY'
+          import json, sys
+          en = json.load(open('extension/_locales/en/messages.json'))
+          it = json.load(open('extension/_locales/it/messages.json'))
+          missing = set(en) ^ set(it)
+          if missing:
+              print('locale keys out of step:', sorted(missing))
+              sys.exit(1)
+          print(len(en), 'keys, aligned')
+          PY
+
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: build and validate exactly as AMO will
+        run: |
+          npm install --no-save addons-linter
+          ./build.sh
+          # AMO rejects a package whose manifest sits inside a folder, and the
+          # rejection message points at packaging rather than at the cause.
+          unzip -l tab-groups-sync-restore-*.zip | grep -q ' manifest.json$'
+          npx addons-linter tab-groups-sync-restore-*.zip
+
+  php:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+      - run: php -l server/rest-endpoint.php

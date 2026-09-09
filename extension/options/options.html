@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tab Groups Sync &amp; Restore</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+
+<header class="masthead">
+  <h1>Tab Groups Sync &amp; Restore</h1>
+  <p class="device-line" id="deviceLine"></p>
+</header>
+
+<div class="shell">
+  <nav class="sidebar" id="sidebar">
+    <a href="#setup" class="nav-item" data-panel="setup" data-i18n="navSetup" id="navSetup" hidden></a>
+    <a href="#sync" class="nav-item is-current" data-panel="sync" data-i18n="navSync"></a>
+    <a href="#security" class="nav-item" data-panel="security" data-i18n="navSecurity"></a>
+    <a href="#content" class="nav-item" data-panel="content" data-i18n="navContent"></a>
+    <a href="#history" class="nav-item" data-panel="history" data-i18n="navHistory"></a>
+    <a href="#advanced" class="nav-item" data-panel="advanced" data-i18n="navAdvanced"></a>
+  </nav>
+
+  <main class="content">
+
+    <!-- ============ First run: step 1 only ============ -->
+    <!-- Steps 2 and 3 reuse the Sync and Security panels rather than repeating
+         their controls, so the master password is asked in exactly one place. -->
+    <section class="panel" id="panel-setup">
+      <p class="step-badge" id="setupBadge"></p>
+      <h2 data-i18n="deviceNameHeading"></h2>
+      <p class="lede" data-i18n="deviceNameHint"></p>
+
+      <div class="field">
+        <label for="setupName" data-i18n="deviceName"></label>
+        <input type="text" id="setupName" spellcheck="false" autocapitalize="off"
+               autocomplete="off" maxlength="40">
+        <p class="hint" id="setupNameFile"></p>
+        <p class="state-line" id="setupNameState" hidden></p>
+        <button type="button" class="btn btn-small" id="setupNameForce"
+                data-i18n="deviceNameUseAnyway" hidden></button>
+      </div>
+
+      <div class="row">
+        <button type="button" class="btn btn-primary" id="setupContinue" data-i18n="setupContinue"></button>
+        <span class="status" id="setupStatus" role="status" aria-live="polite"></span>
+      </div>
+    </section>
+
+    <!-- ============ Sync ============ -->
+    <section class="panel is-current" id="panel-sync">
+      <h2 data-i18n="syncHeading"></h2>
+      <p class="lede" data-i18n="syncIntro"></p>
+
+      <div class="choices" id="backendChoices">
+        <label class="choice">
+          <input type="radio" name="backend" value="browser-sync">
+          <span class="choice-body">
+            <span class="choice-title" data-i18n="backendBrowserSync"></span>
+            <span class="choice-hint" data-i18n="backendBrowserSyncHint"></span>
+            <span class="choice-state" data-backend-state="browser-sync"></span>
+          </span>
+        </label>
+        <label class="choice">
+          <input type="radio" name="backend" value="webdav">
+          <span class="choice-body">
+            <span class="choice-title" data-i18n="backendWebdav"></span>
+            <span class="choice-hint" data-i18n="backendWebdavHint"></span>
+            <span class="choice-state" data-backend-state="webdav"></span>
+          </span>
+        </label>
+        <label class="choice">
+          <input type="radio" name="backend" value="rest">
+          <span class="choice-body">
+            <span class="choice-title" data-i18n="backendRest"></span>
+            <span class="choice-hint" data-i18n="backendRestHint"></span>
+            <span class="choice-state" data-backend-state="rest"></span>
+          </span>
+        </label>
+        <label class="choice">
+          <input type="radio" name="backend" value="git">
+          <span class="choice-body">
+            <span class="choice-title" data-i18n="backendGit"></span>
+            <span class="choice-hint" data-i18n="backendGitHint"></span>
+            <span class="choice-state" data-backend-state="git"></span>
+          </span>
+        </label>
+      </div>
+
+      <!-- WebDAV / Nextcloud -->
+      <div class="backend-config" id="config-webdav" hidden>
+        <div class="choices">
+          <label class="choice">
+            <input type="radio" name="webdavMode" value="nextcloud" checked>
+            <span class="choice-body">
+              <span class="choice-title" data-i18n="webdavModeNextcloud"></span>
+              <span class="choice-hint" data-i18n="webdavModeNextcloudHint"></span>
+            </span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="webdavMode" value="generic">
+            <span class="choice-body">
+              <span class="choice-title" data-i18n="webdavModeGeneric"></span>
+              <span class="choice-hint" data-i18n="webdavModeGenericHint"></span>
+            </span>
+          </label>
+        </div>
+
+        <div id="webdavGeneric" hidden>
+          <div class="field">
+            <label for="davUrl" data-i18n="davUrl"></label>
+            <input type="url" id="davUrl" placeholder="https://example.com/dav" spellcheck="false">
+            <p class="hint" data-i18n="davUrlHint"></p>
+          </div>
+          <div class="field-pair">
+            <div class="field">
+              <label for="davUser" data-i18n="username"></label>
+              <input type="text" id="davUser" autocomplete="username" spellcheck="false">
+            </div>
+            <div class="field">
+              <label for="davPass" data-i18n="password"></label>
+              <input type="password" id="davPass" autocomplete="current-password">
+            </div>
+          </div>
+        </div>
+
+        <div class="field" id="webdavNextcloudUrl">
+          <label for="webdavUrl" data-i18n="serverUrl"></label>
+          <input type="url" id="webdavUrl" placeholder="https://cloud.example.com" spellcheck="false">
+          <p class="perm-line" id="webdavPermState"></p>
+        </div>
+        <div class="row" id="webdavConnectRow">
+          <button type="button" class="btn" id="webdavConnect" data-i18n="connect"></button>
+          <button type="button" class="btn btn-quiet" id="webdavOpenTab" data-i18n="openServerInTab"></button>
+          <span class="status" id="webdavAuthStatus"></span>
+        </div>
+        <p class="hint" data-i18n="openServerInTabHint"></p>
+        <pre class="diagnostics" id="webdavDiagnostics" hidden></pre>
+        <div class="field">
+          <label for="webdavFolder" data-i18n="folderPath"></label>
+          <div class="row">
+            <input type="text" id="webdavFolder" placeholder="/Apps/TabGroupsSync" spellcheck="false">
+            <button type="button" class="btn btn-quiet" id="webdavBrowse" data-i18n="chooseFolder"></button>
+            <button type="button" class="btn btn-quiet" id="webdavCreateFolder" data-i18n="createFolder"></button>
+          </div>
+        </div>
+        <div class="picker" id="folderPicker" hidden></div>
+      </div>
+
+      <!-- Custom REST -->
+      <div class="backend-config" id="config-rest" hidden>
+        <div class="field">
+          <label for="restUrl" data-i18n="serverUrl"></label>
+          <input type="url" id="restUrl" placeholder="https://example.com/tgsr" spellcheck="false">
+        </div>
+        <div class="field">
+          <label for="restToken">Token</label>
+          <input type="password" id="restToken" autocomplete="off" spellcheck="false">
+        </div>
+      </div>
+
+      <!-- Git -->
+      <div class="backend-config" id="config-git" hidden>
+        <div class="field">
+          <label for="gitBase" data-i18n="serverUrl"></label>
+          <input type="url" id="gitBase" placeholder="https://api.github.com" spellcheck="false">
+        </div>
+        <div class="field">
+          <label for="gitRepo">owner/repository</label>
+          <input type="text" id="gitRepo" placeholder="fribby/tab-groups" spellcheck="false">
+        </div>
+        <div class="field-pair">
+          <div class="field">
+            <label for="gitBranch">Branch</label>
+            <input type="text" id="gitBranch" placeholder="main" spellcheck="false">
+          </div>
+          <div class="field">
+            <label for="gitPath" data-i18n="folderPath"></label>
+            <input type="text" id="gitPath" placeholder="tab-groups" spellcheck="false">
+          </div>
+        </div>
+        <div class="field">
+          <label for="gitToken">Token</label>
+          <input type="password" id="gitToken" autocomplete="off" spellcheck="false">
+        </div>
+      </div>
+
+      <div class="test-row" id="testRow" hidden>
+        <button type="button" class="btn" id="testBtn" data-i18n="testConnection"></button>
+        <p class="test-result" id="testResult" role="status" aria-live="polite"></p>
+      </div>
+
+      <div class="wizard-bar" id="wizardSync" hidden>
+        <p class="step-badge" id="wizardSyncBadge"></p>
+        <p class="hint" data-i18n="setupDestPrompt"></p>
+        <button type="button" class="btn btn-primary" id="wizardSyncNext" data-i18n="setupContinue"></button>
+      </div>
+
+      <div class="field field-narrow">
+        <label for="interval" data-i18n="syncInterval"></label>
+        <select id="interval" data-unit="minutesOption">
+          <option value="5"></option>
+          <option value="15"></option>
+          <option value="30"></option>
+          <option value="60"></option>
+        </select>
+      </div>
+    </section>
+
+    <!-- ============ Security ============ -->
+    <section class="panel" id="panel-security">
+      <h2 data-i18n="securityHeading"></h2>
+      <p class="lede" data-i18n="securityIntro"></p>
+
+      <p class="state-line" id="encStateLine" role="status" aria-live="polite"></p>
+
+      <!-- State: locked. The server holds encrypted data and this computer has
+           no key, which is exactly what a second machine sees on first run. -->
+      <div class="enc-block" id="encUnlockBlock" hidden>
+        <div class="field">
+          <label for="unlockPass" data-i18n="masterPassword"></label>
+          <input type="password" id="unlockPass" autocomplete="current-password">
+        </div>
+        <p class="hint" data-i18n="samePasswordEverywhere"></p>
+        <div class="row">
+          <button type="button" class="btn btn-primary" id="unlockBtn" data-i18n="encUnlockAction"></button>
+          <span class="status" id="unlockStatus" role="status" aria-live="polite"></span>
+        </div>
+      </div>
+
+      <!-- State: off. Nothing encrypted anywhere yet. -->
+      <div class="enc-block" id="encSetupBlock" hidden>
+        <label class="toggle">
+          <input type="checkbox" id="encEnabled">
+          <span data-i18n="securityEnable"></span>
+        </label>
+
+        <div id="encFields" hidden>
+          <div class="field">
+            <label for="encPass" data-i18n="masterPassword"></label>
+            <input type="password" id="encPass" autocomplete="new-password">
+          </div>
+          <div class="field">
+            <label for="encPass2" data-i18n="masterPasswordRepeat"></label>
+            <input type="password" id="encPass2" autocomplete="new-password">
+          </div>
+          <p class="hint" data-i18n="samePasswordEverywhere"></p>
+          <p class="warning" data-i18n="masterPasswordNoRecovery"></p>
+          <div class="row">
+            <button type="button" class="btn btn-primary" id="encApply" data-i18n="masterPasswordSet"></button>
+            <span class="status" id="encStatus" role="status" aria-live="polite"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- State: unlocked. Change the password, or turn encryption off. -->
+      <div class="enc-block" id="encManageBlock" hidden>
+        <label class="toggle">
+          <input type="checkbox" id="encSyncCreds">
+          <span data-i18n="syncCredentials"></span>
+        </label>
+        <p class="hint" data-i18n="syncCredentialsHint"></p>
+
+        <h3 data-i18n="encChangeHeading"></h3>
+        <div class="field">
+          <label for="rotatePass" data-i18n="masterPassword"></label>
+          <input type="password" id="rotatePass" autocomplete="new-password">
+        </div>
+        <div class="field">
+          <label for="rotatePass2" data-i18n="masterPasswordRepeat"></label>
+          <input type="password" id="rotatePass2" autocomplete="new-password">
+        </div>
+        <p class="warning" data-i18n="encChangeWarning"></p>
+        <div class="row">
+          <button type="button" class="btn" id="rotateBtn" data-i18n="masterPasswordChange"></button>
+          <span class="status" id="rotateStatus" role="status" aria-live="polite"></span>
+        </div>
+
+        <div class="row danger-row">
+          <button type="button" class="btn btn-danger" id="encDisableBtn" data-i18n="encDisable"></button>
+          <span class="hint" data-i18n="encDisableWarning"></span>
+        </div>
+      </div>
+      <div class="wizard-bar" id="wizardSecurity" hidden>
+        <p class="step-badge" id="wizardSecBadge"></p>
+        <p class="hint" data-i18n="setupEncPrompt"></p>
+        <div class="row">
+          <button type="button" class="btn btn-quiet" id="wizardSkipEnc" data-i18n="setupSkipEncryption"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Content ============ -->
+    <section class="panel" id="panel-content">
+      <h2 data-i18n="contentHeading"></h2>
+      <p class="lede" data-i18n="contentIntro"></p>
+
+      <div class="choices">
+        <label class="choice">
+          <input type="radio" name="filterMode" value="all">
+          <span class="choice-body"><span class="choice-title" data-i18n="filterModeAll"></span></span>
+        </label>
+        <label class="choice">
+          <input type="radio" name="filterMode" value="exclude">
+          <span class="choice-body"><span class="choice-title" data-i18n="filterModeExclude"></span></span>
+        </label>
+        <label class="choice">
+          <input type="radio" name="filterMode" value="include">
+          <span class="choice-body"><span class="choice-title" data-i18n="filterModeInclude"></span></span>
+        </label>
+      </div>
+
+      <div id="filterRulesBlock" hidden>
+        <div class="field">
+          <label for="filterRules" data-i18n="filterRules"></label>
+          <textarea id="filterRules" rows="5" spellcheck="false"></textarea>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="filterIncoming">
+          <span data-i18n="filterApplyIncoming"></span>
+        </label>
+        <p class="hint" data-i18n="filterApplyIncomingHint"></p>
+
+        <!-- Names change; showing what the rules actually hit right now is how
+             the user notices a rule that stopped matching. -->
+        <div class="preview" id="filterPreview"></div>
+      </div>
+    </section>
+
+    <!-- ============ History ============ -->
+    <section class="panel" id="panel-history">
+      <h2 data-i18n="historyHeading"></h2>
+      <p class="lede" data-i18n="historyIntro"></p>
+
+      <p class="notice" id="historyUnavailable" data-i18n="historyUnavailable" hidden></p>
+
+      <div id="historyFields">
+        <label class="toggle">
+          <input type="checkbox" id="historyEnabled">
+          <span data-i18n="historyHeading"></span>
+        </label>
+        <div class="field-pair">
+          <div class="field field-narrow">
+            <label for="historyDays" data-i18n="historyKeepDays"></label>
+            <select id="historyDays" data-unit="days">
+              <option value="3"></option>
+              <option value="7"></option>
+              <option value="14"></option>
+              <option value="30"></option>
+            </select>
+          </div>
+          <div class="field field-narrow">
+            <label for="historyCount" data-i18n="historyKeepCount"></label>
+            <select id="historyCount">
+              <option value="10">10</option>
+              <option value="25">25</option>
+              <option value="50">50</option>
+            </select>
+          </div>
+        </div>
+        <p class="hint" data-i18n="historyPerDevice"></p>
+
+        <h3 data-i18n="historyBrowseHeading"></h3>
+        <div class="row row-baseline">
+          <select id="historyDevice" aria-label="Computer"></select>
+          <button type="button" class="btn btn-quiet btn-small" id="historyRefresh" data-i18n="historyRefresh"></button>
+          <button type="button" class="btn btn-danger btn-small" id="deviceRemove" hidden></button>
+        </div>
+        <p class="hint" id="deviceRemoveHint" data-i18n="deleteDeviceHint" hidden></p>
+        <div class="snapshots" id="snapshotList"></div>
+      </div>
+    </section>
+
+    <!-- ============ Advanced ============ -->
+    <section class="panel" id="panel-advanced">
+      <h2 data-i18n="advancedHeading"></h2>
+
+      <div class="field">
+        <label for="deviceName" data-i18n="deviceName"></label>
+        <input type="text" id="deviceName" spellcheck="false" autocapitalize="off"
+               autocomplete="off" maxlength="40">
+        <p class="hint" id="deviceNameFile"></p>
+        <p class="state-line" id="deviceNameState" hidden></p>
+        <div class="row">
+          <button type="button" class="btn" id="deviceRename" data-i18n="deviceNameChange"></button>
+          <span class="status" id="deviceRenameStatus" role="status" aria-live="polite"></span>
+        </div>
+        <p class="hint" data-i18n="deviceRenameHint"></p>
+      </div>
+
+      <div class="row">
+        <button type="button" class="btn btn-quiet" id="exportBtn" data-i18n="exportSettings"></button>
+        <button type="button" class="btn btn-quiet" id="importBtn" data-i18n="importSettings"></button>
+        <input type="file" id="importFile" accept="application/json" hidden>
+      </div>
+      <p class="hint" data-i18n="exportSettingsHint"></p>
+
+      <div class="row">
+        <button type="button" class="btn btn-quiet" id="diagnoseBtn" data-i18n="runDiagnostics"></button>
+      </div>
+      <p class="hint" data-i18n="runDiagnosticsHint"></p>
+      <pre class="diagnostics" id="diagnoseOut" hidden></pre>
+
+      <h3 data-i18n="lastFailureTrace" id="traceHeading" hidden></h3>
+      <pre class="diagnostics" id="traceOut" hidden></pre>
+
+      <div class="row danger-row">
+        <button type="button" class="btn btn-danger" id="resetBtn" data-i18n="resetExtension"></button>
+        <span class="hint" data-i18n="resetConfirm"></span>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="savebar">
+  <span class="save-status" id="saveStatus" role="status" aria-live="polite"></span>
+  <button type="button" class="btn btn-primary" id="saveBtn" data-i18n="save"></button>
+</footer>
+
+<script type="module" src="options.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+{
+  "manifest_version": 3,
+  "name": "Tab Groups Sync & Restore",
+  "version": "0.1.0",
+  "description": "__MSG_extensionDescription__",
+  "default_locale": "en",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "tab-groups-sync-restore@fribbynetwork.net",
+      "strict_min_version": "140.0",
+      "data_collection_permissions": {
+        "required": [
+          "browsingActivity"
+        ]
+      }
+    },
+    "gecko_android": {
+      "strict_min_version": "142.0"
+    }
+  },
+  "permissions": [
+    "tabs",
+    "tabGroups",
+    "storage",
+    "alarms",
+    "sessions",
+    "contextualIdentities"
+  ],
+  "optional_permissions": [],
+  "optional_host_permissions": [
+    "https://*/*",
+    "http://*/*"
+  ],
+  "background": {
+    "scripts": [
+      "background/background.js"
+    ],
+    "type": "module"
+  },
+  "options_ui": {
+    "page": "options/options.html",
+    "open_in_tab": true
+  },
+  "action": {
+    "default_title": "Tab Groups Sync & Restore",
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png"
+    }
+  },
+  "icons": {
+    "48": "icons/icon-48.png",
+    "96": "icons/icon-96.png",
+    "128": "icons/icon-128.png"
+  }
+}

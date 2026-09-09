@@ -1,0 +1,71 @@
+# Apache configuration for the Tab Groups Sync & Restore endpoint.
+# Put this next to index.php.
+#
+# Three things have to be true and none of them are by default.
+
+# ---------------------------------------------------------------------------
+# 1. Every request has to reach index.php.
+#
+# Without this only "/" reaches the script, because index.php is the
+# DirectoryIndex. A request for /groups/abc.json is treated as a static file
+# that does not exist (404), and PUT against it is a method Apache will not
+# perform on a static path (405) — neither ever reaches PHP.
+# ---------------------------------------------------------------------------
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Already pointed at the script: leave it alone, or the rule loops.
+    RewriteCond %{REQUEST_URI} !^/index\.php
+    # Real files still serve normally, so this stays usable for anything else.
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*)$ index.php/$1 [QSA,L]
+</IfModule>
+
+# PATH_INFO is what carries the key to the script.
+AcceptPathInfo On
+
+# ---------------------------------------------------------------------------
+# 2. The Authorization header has to survive.
+#
+# Under CGI and FastCGI, Apache drops it before PHP runs. The result is
+# indistinguishable from a wrong token, which is exactly how it looks.
+# ---------------------------------------------------------------------------
+
+<IfModule mod_setenvif.c>
+    SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
+</IfModule>
+
+# Apache 2.4.13 and later can do this directly.
+<IfModule mod_cgi.c>
+    CGIPassAuth On
+</IfModule>
+<IfModule mod_proxy_fcgi.c>
+    CGIPassAuth On
+</IfModule>
+
+# ---------------------------------------------------------------------------
+# 3. The stored data must not be readable over the web.
+#
+# If DATA_DIR sits under the document root — which it does with the default
+# __DIR__ . '/tgsr-data' — then every synced file is a plain URL away, and
+# without encryption that is the user's browsing history served to anyone who
+# guesses the path. Moving DATA_DIR outside the document root is the real fix;
+# this is the safety net.
+# ---------------------------------------------------------------------------
+
+RedirectMatch 404 ^/tgsr-data(/|$)
+
+# ---------------------------------------------------------------------------
+# 4. Do not let a proxy or mod_deflate rewrite ETags.
+#
+# mod_deflate appends "-gzip" to the ETag of anything it compresses. The client
+# reads that value, sends it back in If-Match, and the origin — which stored the
+# bare tag — refuses it with 412 forever. The extension strips known suffixes,
+# but it is better not to create the problem.
+# ---------------------------------------------------------------------------
+
+<IfModule mod_deflate.c>
+    SetEnvIfNoCase Request_URI ^/ no-gzip
+</IfModule>

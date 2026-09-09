@@ -1,0 +1,640 @@
+{
+  "extensionDescription": {
+    "message": "Sincronizza i gruppi di schede fra i tuoi computer usando un tuo server, e li recupera dalla cronologia quando ne chiudi uno per sbaglio."
+  },
+  "navSync": {
+    "message": "Sincronizzazione"
+  },
+  "navSecurity": {
+    "message": "Sicurezza"
+  },
+  "navContent": {
+    "message": "Cosa sincronizzare"
+  },
+  "navHistory": {
+    "message": "Cronologia"
+  },
+  "navAdvanced": {
+    "message": "Avanzate"
+  },
+  "syncHeading": {
+    "message": "Dove vengono salvati i gruppi"
+  },
+  "syncIntro": {
+    "message": "Scegli una destinazione. Firefox Sync non richiede configurazione ma ha poco spazio e niente cronologia. Le altre opzioni richiedono un server tuo e in cambio sbloccano la cronologia e sessioni più grandi."
+  },
+  "backendBrowserSync": {
+    "message": "Firefox Sync"
+  },
+  "backendBrowserSyncHint": {
+    "message": "Usa il tuo account Mozilla. Nessuna configurazione, ma circa 100 KB di spazio e niente cronologia."
+  },
+  "backendWebdav": {
+    "message": "Nextcloud o WebDAV"
+  },
+  "backendWebdavHint": {
+    "message": "Nextcloud, ownCloud, Synology o qualsiasi server WebDAV."
+  },
+  "backendRest": {
+    "message": "Endpoint personalizzato"
+  },
+  "backendRestHint": {
+    "message": "Una piccola API JSON ospitata da te."
+  },
+  "backendGit": {
+    "message": "Server Git"
+  },
+  "backendGitHint": {
+    "message": "GitHub, Gitea o Forgejo. Tiene anche una sua cronologia dei file."
+  },
+  "serverUrl": {
+    "message": "Indirizzo del server"
+  },
+  "folderPath": {
+    "message": "Cartella"
+  },
+  "chooseFolder": {
+    "message": "Scegli cartella"
+  },
+  "connect": {
+    "message": "Collega"
+  },
+  "connected": {
+    "message": "Collegato come $USER$",
+    "placeholders": {
+      "user": {
+        "content": "$1"
+      }
+    }
+  },
+  "testConnection": {
+    "message": "Prova connessione"
+  },
+  "testing": {
+    "message": "Prova in corso…"
+  },
+  "testOk": {
+    "message": "La connessione funziona."
+  },
+  "testFailAuth": {
+    "message": "Il server ha rifiutato le credenziali. Ricollegati per ottenere una nuova password applicazione."
+  },
+  "testFailNotFound": {
+    "message": "Cartella non trovata. Scegline un'altra oppure creala."
+  },
+  "testFailNetwork": {
+    "message": "Server irraggiungibile. Controlla l'indirizzo e che sia raggiungibile da questo computer."
+  },
+  "testFailPermission": {
+    "message": "Firefox non ha ancora accesso a questo server. Concedilo e riprova."
+  },
+  "testFailGeneric": {
+    "message": "Il server ha risposto con un errore: $DETAIL$",
+    "placeholders": {
+      "detail": {
+        "content": "$1"
+      }
+    }
+  },
+  "syncInterval": {
+    "message": "Sincronizza ogni"
+  },
+  "securityHeading": {
+    "message": "Password principale"
+  },
+  "securityIntro": {
+    "message": "I titoli e gli indirizzi delle tue schede vengono cifrati su questo computer prima di essere caricati. Chi ha accesso al server non può leggerli senza questa password."
+  },
+  "securityEnable": {
+    "message": "Cifra i miei dati"
+  },
+  "masterPassword": {
+    "message": "Password principale"
+  },
+  "masterPasswordRepeat": {
+    "message": "Ripeti la password principale"
+  },
+  "masterPasswordSet": {
+    "message": "Imposta password"
+  },
+  "masterPasswordChange": {
+    "message": "Cambia password"
+  },
+  "masterPasswordWrong": {
+    "message": "Questa password non corrisponde a quella usata dagli altri tuoi computer."
+  },
+  "masterPasswordMismatch": {
+    "message": "Le due password sono diverse."
+  },
+  "masterPasswordNoRecovery": {
+    "message": "Questa password non è recuperabile. Se la perdi, i dati sul server non saranno più leggibili."
+  },
+  "syncCredentials": {
+    "message": "Sincronizza anche le credenziali del server, cifrate"
+  },
+  "syncCredentialsHint": {
+    "message": "Risparmia un passaggio su un computer nuovo. Le credenziali restano leggibili solo con la tua password principale."
+  },
+  "contentHeading": {
+    "message": "Quali gruppi sincronizzare"
+  },
+  "contentIntro": {
+    "message": "Le schede fuori dai gruppi restano su questo computer. Spostane una dentro a un gruppo per condividerla."
+  },
+  "filterModeAll": {
+    "message": "Tutti i gruppi"
+  },
+  "filterModeExclude": {
+    "message": "Tutti i gruppi tranne quelli che elenco"
+  },
+  "filterModeInclude": {
+    "message": "Solo i gruppi che elenco"
+  },
+  "filterRules": {
+    "message": "Nomi dei gruppi, uno per riga"
+  },
+  "filterApplyIncoming": {
+    "message": "Applica questo elenco anche ai gruppi in arrivo"
+  },
+  "filterApplyIncomingHint": {
+    "message": "I gruppi degli altri computer che corrispondono non verranno aperti qui."
+  },
+  "filterMatchingNow": {
+    "message": "In questo momento corrisponde a:"
+  },
+  "filterMatchingNone": {
+    "message": "In questo momento non corrisponde a nessun gruppo di questo computer."
+  },
+  "historyHeading": {
+    "message": "Cronologia"
+  },
+  "historyIntro": {
+    "message": "Ogni volta che i tuoi gruppi cambiano viene salvata un'istantanea, così puoi recuperare un gruppo o una scheda chiusa per sbaglio."
+  },
+  "historyUnavailable": {
+    "message": "La cronologia richiede una delle opzioni con server. Firefox Sync ha troppo poco spazio per contenerla."
+  },
+  "historyKeepDays": {
+    "message": "Conserva le istantanee per"
+  },
+  "days": {
+    "message": "$N$ giorni",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "historyKeepCount": {
+    "message": "Istantanee per computer"
+  },
+  "historyPerDevice": {
+    "message": "Ogni computer conserva la propria cronologia."
+  },
+  "advancedHeading": {
+    "message": "Avanzate"
+  },
+  "deviceName": {
+    "message": "Nome di questo computer"
+  },
+  "exportSettings": {
+    "message": "Esporta impostazioni"
+  },
+  "exportSettingsHint": {
+    "message": "Un file con le impostazioni del server, per un computer che non usa Firefox Sync."
+  },
+  "importSettings": {
+    "message": "Importa impostazioni"
+  },
+  "resetExtension": {
+    "message": "Azzera tutto"
+  },
+  "resetConfirm": {
+    "message": "Vengono cancellate le impostazioni di questo computer. I gruppi sul server restano intatti."
+  },
+  "save": {
+    "message": "Salva modifiche"
+  },
+  "saved": {
+    "message": "Salvato"
+  },
+  "popupSyncNow": {
+    "message": "Sincronizza ora"
+  },
+  "popupSyncing": {
+    "message": "Sincronizzazione…"
+  },
+  "popupLastSync": {
+    "message": "Ultima sincronizzazione $WHEN$",
+    "placeholders": {
+      "when": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupNeverSynced": {
+    "message": "Mai sincronizzato"
+  },
+  "popupRecentlyClosed": {
+    "message": "Chiusi di recente"
+  },
+  "popupGroupHistory": {
+    "message": "Cronologia gruppi"
+  },
+  "popupOpenOptions": {
+    "message": "Impostazioni"
+  },
+  "popupNoBackend": {
+    "message": "Scegli dove salvare i tuoi gruppi per iniziare."
+  },
+  "restoreGroup": {
+    "message": "Ripristina gruppo"
+  },
+  "restoreTab": {
+    "message": "Ripristina scheda"
+  },
+  "snapshotAt": {
+    "message": "$TIME$ su $DEVICE$",
+    "placeholders": {
+      "time": {
+        "content": "$1"
+      },
+      "device": {
+        "content": "$2"
+      }
+    }
+  },
+  "encStateOff": {
+    "message": "I tuoi dati vengono caricati senza cifratura."
+  },
+  "encStateUnlocked": {
+    "message": "Sbloccato su questo computer."
+  },
+  "encStateLocked": {
+    "message": "Questo computer ha bisogno della password principale per sincronizzare."
+  },
+  "encStateLockedNew": {
+    "message": "I tuoi gruppi sul server sono cifrati. Inserisci la password principale che hai impostato sull'altro computer."
+  },
+  "encUnlockAction": {
+    "message": "Sblocca"
+  },
+  "encChangeHeading": {
+    "message": "Cambia la password principale"
+  },
+  "encChangeWarning": {
+    "message": "Ogni gruppo sul server viene riscritto con la nuova password. Gli altri tuoi computer la chiederanno alla prossima sincronizzazione."
+  },
+  "encDisable": {
+    "message": "Disattiva la cifratura"
+  },
+  "encDisableWarning": {
+    "message": "Tutto ciò che è sul server viene riscritto in chiaro."
+  },
+  "encWorking": {
+    "message": "Operazione in corso…"
+  },
+  "encRewritten": {
+    "message": "Riscritti $N$ file.",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "encCredentialsRestored": {
+    "message": "Credenziali del server recuperate dall'altro tuo computer."
+  },
+  "popupUnlock": {
+    "message": "Sblocca"
+  },
+  "popupUnlockPrompt": {
+    "message": "Inserisci la password principale per sincronizzare."
+  },
+  "testFailUnreachable": {
+    "message": "Firefox non è riuscito a raggiungere il server. Le cause tipiche sono un certificato non attendibile, un indirizzo sbagliato, o il server non raggiungibile da questo computer."
+  },
+  "openServerInTab": {
+    "message": "Apri il server in una scheda"
+  },
+  "openServerInTabHint": {
+    "message": "Se il certificato è autofirmato, apri una volta il server in una scheda normale e accetta l'avviso. Firefox non può mostrarlo durante una richiesta in background."
+  },
+  "diagnostics": {
+    "message": "Dettagli"
+  },
+  "permGranted": {
+    "message": "Firefox ha accesso a $ORIGIN$",
+    "placeholders": {
+      "origin": {
+        "content": "$1"
+      }
+    }
+  },
+  "permMissing": {
+    "message": "Firefox non ha ancora accesso a $ORIGIN$. Premi Collega per concederlo.",
+    "placeholders": {
+      "origin": {
+        "content": "$1"
+      }
+    }
+  },
+  "permInvalidUrl": {
+    "message": "Non sembra un indirizzo completo. Deve includere https:// e nessun percorso."
+  },
+  "testOkCreated": {
+    "message": "La connessione funziona. La cartella non esisteva ed è stata creata."
+  },
+  "createFolder": {
+    "message": "Crea cartella"
+  },
+  "folderCreated": {
+    "message": "Cartella creata."
+  },
+  "useThisFolder": {
+    "message": "Usa questa cartella"
+  },
+  "newFolderName": {
+    "message": "Nome della nuova cartella"
+  },
+  "pickerRoot": {
+    "message": "Home"
+  },
+  "historyBrowseHeading": {
+    "message": "Istantanee salvate"
+  },
+  "historyEmpty": {
+    "message": "Nessuna istantanea. La prima viene salvata quando una sincronizzazione carica una modifica."
+  },
+  "historyLoading": {
+    "message": "Caricamento…"
+  },
+  "historyBack": {
+    "message": "Torna alle istantanee"
+  },
+  "historyTabCount": {
+    "message": "$N$ schede",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "historyShowTabs": {
+    "message": "Mostra schede"
+  },
+  "historyRestored": {
+    "message": "Ripristinato."
+  },
+  "historyRefresh": {
+    "message": "Aggiorna"
+  },
+  "syncFailConflict": {
+    "message": "Un altro computer stava scrivendo nello stesso momento. La prossima sincronizzazione recupererà."
+  },
+  "testOkNoEtag": {
+    "message": "La connessione funziona, ma il server non restituisce le etichette di versione. Modificando lo stesso gruppo su due computer contemporaneamente una delle due modifiche può andare persa."
+  },
+  "testOkNoIfMatch": {
+    "message": "La connessione funziona, ma il server ignora le scritture condizionali. Modificando lo stesso gruppo su due computer contemporaneamente una delle due modifiche può andare persa."
+  },
+  "setupDeviceHint": {
+    "message": "Vedrai questo nome quando sfogli la cronologia dagli altri tuoi computer."
+  },
+  "setupContinue": {
+    "message": "Continua"
+  },
+  "navSetup": {
+    "message": "Configurazione"
+  },
+  "errorAt": {
+    "message": "alle $TIME$",
+    "placeholders": {
+      "time": {
+        "content": "$1"
+      }
+    }
+  },
+  "minutesOption": {
+    "message": "$N$ minuti",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "syncFailSchema": {
+    "message": "I dati sul server sono stati scritti da una versione più recente dell'estensione. Aggiornala, oppure svuota la cartella per ricominciare."
+  },
+  "runDiagnostics": {
+    "message": "Verifica come il server gestisce le scritture"
+  },
+  "runDiagnosticsHint": {
+    "message": "Scrive un file di prova, tenta ogni tipo di scrittura condizionale, poi lo cancella. Copia il risultato se qualcosa non funziona."
+  },
+  "testOkBrokenEtag": {
+    "message": "La connessione funziona, ma qualcosa fra Firefox e Nextcloud riscrive le etichette di versione — spesso un reverse proxy che comprime le risposte. La sincronizzazione funziona; modifiche simultanee su due computer possono perderne una. Si risolve disattivando la compressione o la riscrittura degli ETag per questo percorso."
+  },
+  "lastFailureTrace": {
+    "message": "Richieste dell'ultima sincronizzazione fallita"
+  },
+  "copyDiagnostics": {
+    "message": "Copia diagnostica"
+  },
+  "copied": {
+    "message": "Copiato"
+  },
+  "setupStep": {
+    "message": "Passo $N$ di 3",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "setupNameHeading": {
+    "message": "Dai un nome a questo computer"
+  },
+  "setupDestPrompt": {
+    "message": "Scegli qui sotto una destinazione e collegala. Poi prosegui."
+  },
+  "setupEncPrompt": {
+    "message": "Decidi ora se titoli e indirizzi delle tue schede vengono cifrati prima di lasciare questo computer."
+  },
+  "setupSkipEncryption": {
+    "message": "Continua senza cifratura"
+  },
+  "samePasswordEverywhere": {
+    "message": "Usa la stessa password principale su tutti i computer. È ciò che permette loro di leggere i gruppi degli altri."
+  },
+  "encStateChangedElsewhere": {
+    "message": "La password principale è stata cambiata su un altro computer. La sincronizzazione è sospesa finché non inserisci qui quella nuova."
+  },
+  "syncPausedLocked": {
+    "message": "La sincronizzazione è sospesa finché non inserisci la password principale."
+  },
+  "encExistingServer": {
+    "message": "I tuoi gruppi sul server sono già cifrati. Inserisci la password principale che hai scelto sull'altro computer."
+  },
+  "webdavModeNextcloud": {
+    "message": "Nextcloud o ownCloud"
+  },
+  "webdavModeNextcloudHint": {
+    "message": "Accedi tramite il tuo server. Nessuna password viene salvata."
+  },
+  "webdavModeGeneric": {
+    "message": "Qualsiasi altro server WebDAV"
+  },
+  "webdavModeGenericHint": {
+    "message": "Synology, kDrive, Fastmail, Apache mod_dav. Richiede l'indirizzo WebDAV completo e le credenziali."
+  },
+  "davUrl": {
+    "message": "Indirizzo WebDAV"
+  },
+  "davUrlHint": {
+    "message": "L'indirizzo completo della tua collezione WebDAV, ad esempio https://example.com/dav oppure https://example.com/remote.php/dav/files/io"
+  },
+  "username": {
+    "message": "Nome utente"
+  },
+  "password": {
+    "message": "Password"
+  },
+  "testFailAuthToken": {
+    "message": "Il server ha rifiutato il token. Verifica che coincida con quello configurato sul server, e che il server inoltri allo script l'header Authorization."
+  },
+  "testFailNoCredentials": {
+    "message": "Per questa destinazione non hai ancora inserito un token."
+  },
+  "backendConfigured": {
+    "message": "configurata"
+  },
+  "backendLastSync": {
+    "message": "ultima sincronizzazione $WHEN$",
+    "placeholders": {
+      "when": {
+        "content": "$1"
+      }
+    }
+  },
+  "diagnoseUnavailable": {
+    "message": "Questa destinazione non ha un test di scrittura."
+  },
+  "deleteSnapshot": {
+    "message": "Elimina"
+  },
+  "deleteDevice": {
+    "message": "Rimuovi questo computer"
+  },
+  "deleteDeviceConfirm": {
+    "message": "Rimuoverlo con le sue istantanee?"
+  },
+  "deleteDeviceHint": {
+    "message": "Le sue istantanee vengono eliminate e sparisce dall'elenco. I gruppi che ha condiviso restano: appartengono a tutti."
+  },
+  "confirmOnce": {
+    "message": "Sicuro?"
+  },
+  "deleted": {
+    "message": "Eliminato"
+  },
+  "setupDeviceHintShort": {
+    "message": "questo computer"
+  },
+  "popupDeviceChanged": {
+    "message": "$DEVICE$ è cambiato",
+    "placeholders": {
+      "device": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupDeviceChangedWhen": {
+    "message": "aggiornato $WHEN$",
+    "placeholders": {
+      "when": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupOpenHere": {
+    "message": "Aprili qui"
+  },
+  "popupReplaceHere": {
+    "message": "Sostituisci i miei"
+  },
+  "popupIgnore": {
+    "message": "Non fare nulla"
+  },
+  "popupOpenHereTitle": {
+    "message": "Aggiunge i suoi gruppi a quelli già aperti qui. I tuoi restano intatti."
+  },
+  "popupReplaceHereTitle": {
+    "message": "Chiude i gruppi aperti qui e apre quelli di quel computer. Prima viene salvata un'istantanea, quindi è recuperabile dalla cronologia."
+  },
+  "popupIgnoreTitle": {
+    "message": "Toglie l'avviso. Ti verrà richiesto solo quando quel computer cambierà qualcosa di nuovo."
+  },
+  "popupApplied": {
+    "message": "$OPENED$ aperti, $CLOSED$ chiusi",
+    "placeholders": {
+      "opened": {
+        "content": "$1"
+      },
+      "closed": {
+        "content": "$2"
+      }
+    }
+  },
+  "deviceNameHeading": {
+    "message": "Dai un nome a questo computer"
+  },
+  "deviceNameHint": {
+    "message": "Diventa il nome del suo file sul server. Solo lettere, cifre, - e _; gli spazi diventano trattini bassi."
+  },
+  "deviceNameFile": {
+    "message": "Il suo file sarà $FILE$",
+    "placeholders": {
+      "file": {
+        "content": "$1"
+      }
+    }
+  },
+  "deviceNameFree": {
+    "message": "Questo nome è libero."
+  },
+  "deviceNameMine": {
+    "message": "È già il file di questo computer. Riprenderà da dove aveva lasciato."
+  },
+  "deviceNameTaken": {
+    "message": "Un altro computer sta già usando questo nome, scritto l'ultima volta $WHEN$. Usarlo comunque significa prendere il controllo di quel file, che è ciò che serve dopo una reinstallazione.",
+    "placeholders": {
+      "when": {
+        "content": "$1"
+      }
+    }
+  },
+  "deviceNameUseAnyway": {
+    "message": "Usa comunque questo nome"
+  },
+  "deviceNameInvalid": {
+    "message": "Scegli un nome con lettere, cifre, - o _."
+  },
+  "deviceNameChange": {
+    "message": "Cambia nome"
+  },
+  "deviceRenameHint": {
+    "message": "Anche il file sul server viene rinominato, con le sue istantanee. Non si perde nulla."
+  },
+  "devicesUnreadable": {
+    "message": "Sigillati con una password principale diversa e non apribili qui: $LIST$",
+    "placeholders": {
+      "list": {
+        "content": "$1"
+      }
+    }
+  },
+  "quotaExceeded": {
+    "message": "Firefox Sync è pieno. Consente circa 100 KB per estensione, che una sessione grande può superare. Usa una destinazione con server per avere più spazio, oppure sincronizza meno gruppi."
+  }
+}

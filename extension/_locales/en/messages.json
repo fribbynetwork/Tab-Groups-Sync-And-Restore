@@ -1,0 +1,640 @@
+{
+  "extensionDescription": {
+    "message": "Sync your tab groups across computers through your own server, and restore them from history when something gets closed by mistake."
+  },
+  "navSync": {
+    "message": "Sync"
+  },
+  "navSecurity": {
+    "message": "Security"
+  },
+  "navContent": {
+    "message": "What to sync"
+  },
+  "navHistory": {
+    "message": "History"
+  },
+  "navAdvanced": {
+    "message": "Advanced"
+  },
+  "syncHeading": {
+    "message": "Where your groups are stored"
+  },
+  "syncIntro": {
+    "message": "Pick one destination. Firefox Sync works with no setup but has a small size limit and no history. The other options need a server you control and unlock history and larger sessions."
+  },
+  "backendBrowserSync": {
+    "message": "Firefox Sync"
+  },
+  "backendBrowserSyncHint": {
+    "message": "Uses your Mozilla account. No setup, but limited to about 100 KB and no history."
+  },
+  "backendWebdav": {
+    "message": "Nextcloud or WebDAV"
+  },
+  "backendWebdavHint": {
+    "message": "Nextcloud, ownCloud, Synology, or any WebDAV server."
+  },
+  "backendRest": {
+    "message": "Custom endpoint"
+  },
+  "backendRestHint": {
+    "message": "A small JSON API you host yourself."
+  },
+  "backendGit": {
+    "message": "Git host"
+  },
+  "backendGitHint": {
+    "message": "GitHub, Gitea, or Forgejo. Keeps its own file history too."
+  },
+  "serverUrl": {
+    "message": "Server address"
+  },
+  "folderPath": {
+    "message": "Folder"
+  },
+  "chooseFolder": {
+    "message": "Choose folder"
+  },
+  "connect": {
+    "message": "Connect"
+  },
+  "connected": {
+    "message": "Connected as $USER$",
+    "placeholders": {
+      "user": {
+        "content": "$1"
+      }
+    }
+  },
+  "testConnection": {
+    "message": "Test connection"
+  },
+  "testing": {
+    "message": "Testing…"
+  },
+  "testOk": {
+    "message": "Connection works."
+  },
+  "testFailAuth": {
+    "message": "The server rejected the credentials. Connect again to get a new app password."
+  },
+  "testFailNotFound": {
+    "message": "The folder was not found. Pick another one or create it."
+  },
+  "testFailNetwork": {
+    "message": "Could not reach the server. Check the address and that it is available from this computer."
+  },
+  "testFailPermission": {
+    "message": "Firefox has not been given access to this server yet. Allow it and try again."
+  },
+  "testFailGeneric": {
+    "message": "The server answered with an error: $DETAIL$",
+    "placeholders": {
+      "detail": {
+        "content": "$1"
+      }
+    }
+  },
+  "syncInterval": {
+    "message": "Sync every"
+  },
+  "securityHeading": {
+    "message": "Master password"
+  },
+  "securityIntro": {
+    "message": "Your tab titles and addresses are encrypted on this computer before they are uploaded. Nobody with access to the server can read them without this password."
+  },
+  "securityEnable": {
+    "message": "Encrypt my data"
+  },
+  "masterPassword": {
+    "message": "Master password"
+  },
+  "masterPasswordRepeat": {
+    "message": "Repeat master password"
+  },
+  "masterPasswordSet": {
+    "message": "Set password"
+  },
+  "masterPasswordChange": {
+    "message": "Change password"
+  },
+  "masterPasswordWrong": {
+    "message": "That password does not match the one your other computers used."
+  },
+  "masterPasswordMismatch": {
+    "message": "The two passwords are different."
+  },
+  "masterPasswordNoRecovery": {
+    "message": "There is no way to recover this password. If you lose it, the data on the server cannot be read again."
+  },
+  "syncCredentials": {
+    "message": "Also sync the server credentials, encrypted"
+  },
+  "syncCredentialsHint": {
+    "message": "Saves one setup step on a new computer. The credentials are only readable with your master password."
+  },
+  "contentHeading": {
+    "message": "Which groups to sync"
+  },
+  "contentIntro": {
+    "message": "Tabs that are not in a group stay on this computer. Move a tab into a group to share it."
+  },
+  "filterModeAll": {
+    "message": "All groups"
+  },
+  "filterModeExclude": {
+    "message": "All groups except the ones I list"
+  },
+  "filterModeInclude": {
+    "message": "Only the groups I list"
+  },
+  "filterRules": {
+    "message": "Group names, one per line"
+  },
+  "filterApplyIncoming": {
+    "message": "Apply this list to incoming groups too"
+  },
+  "filterApplyIncomingHint": {
+    "message": "Groups from other computers that match will not be opened here."
+  },
+  "filterMatchingNow": {
+    "message": "Right now this matches:"
+  },
+  "filterMatchingNone": {
+    "message": "Right now this matches no group on this computer."
+  },
+  "historyHeading": {
+    "message": "History"
+  },
+  "historyIntro": {
+    "message": "A snapshot is saved when your groups change, so you can bring back a group or a tab you closed by mistake."
+  },
+  "historyUnavailable": {
+    "message": "History needs one of the server options. Firefox Sync is too small to hold it."
+  },
+  "historyKeepDays": {
+    "message": "Keep snapshots for"
+  },
+  "days": {
+    "message": "$N$ days",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "historyKeepCount": {
+    "message": "Snapshots per computer"
+  },
+  "historyPerDevice": {
+    "message": "Each computer keeps its own history."
+  },
+  "advancedHeading": {
+    "message": "Advanced"
+  },
+  "deviceName": {
+    "message": "Name of this computer"
+  },
+  "exportSettings": {
+    "message": "Export settings"
+  },
+  "exportSettingsHint": {
+    "message": "A file with your server settings, for a computer that does not use Firefox Sync."
+  },
+  "importSettings": {
+    "message": "Import settings"
+  },
+  "resetExtension": {
+    "message": "Reset everything"
+  },
+  "resetConfirm": {
+    "message": "This clears the settings on this computer. Your groups on the server are left alone."
+  },
+  "save": {
+    "message": "Save changes"
+  },
+  "saved": {
+    "message": "Saved"
+  },
+  "popupSyncNow": {
+    "message": "Sync now"
+  },
+  "popupSyncing": {
+    "message": "Syncing…"
+  },
+  "popupLastSync": {
+    "message": "Last synced $WHEN$",
+    "placeholders": {
+      "when": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupNeverSynced": {
+    "message": "Not synced yet"
+  },
+  "popupRecentlyClosed": {
+    "message": "Recently closed"
+  },
+  "popupGroupHistory": {
+    "message": "Group history"
+  },
+  "popupOpenOptions": {
+    "message": "Settings"
+  },
+  "popupNoBackend": {
+    "message": "Choose where to store your groups to get started."
+  },
+  "restoreGroup": {
+    "message": "Restore group"
+  },
+  "restoreTab": {
+    "message": "Restore tab"
+  },
+  "snapshotAt": {
+    "message": "$TIME$ on $DEVICE$",
+    "placeholders": {
+      "time": {
+        "content": "$1"
+      },
+      "device": {
+        "content": "$2"
+      }
+    }
+  },
+  "encStateOff": {
+    "message": "Your data is uploaded unencrypted."
+  },
+  "encStateUnlocked": {
+    "message": "Unlocked on this computer."
+  },
+  "encStateLocked": {
+    "message": "This computer needs the master password before it can sync."
+  },
+  "encStateLockedNew": {
+    "message": "Your groups on the server are encrypted. Enter the master password you set on your other computer."
+  },
+  "encUnlockAction": {
+    "message": "Unlock"
+  },
+  "encChangeHeading": {
+    "message": "Change the master password"
+  },
+  "encChangeWarning": {
+    "message": "Every group on the server is rewritten under the new password. Your other computers will ask for it the next time they sync."
+  },
+  "encDisable": {
+    "message": "Turn off encryption"
+  },
+  "encDisableWarning": {
+    "message": "Everything on the server is rewritten unencrypted."
+  },
+  "encWorking": {
+    "message": "Working…"
+  },
+  "encRewritten": {
+    "message": "Rewrote $N$ files.",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "encCredentialsRestored": {
+    "message": "Server credentials picked up from your other computer."
+  },
+  "popupUnlock": {
+    "message": "Unlock"
+  },
+  "popupUnlockPrompt": {
+    "message": "Enter your master password to sync."
+  },
+  "testFailUnreachable": {
+    "message": "Firefox could not reach the server. The usual causes are an untrusted certificate, a wrong address, or the server not being reachable from this computer."
+  },
+  "openServerInTab": {
+    "message": "Open the server in a tab"
+  },
+  "openServerInTabHint": {
+    "message": "If the certificate is self-signed, open the server once in a normal tab and accept the warning. Firefox cannot show that warning during a background request."
+  },
+  "diagnostics": {
+    "message": "Details"
+  },
+  "permGranted": {
+    "message": "Firefox has access to $ORIGIN$",
+    "placeholders": {
+      "origin": {
+        "content": "$1"
+      }
+    }
+  },
+  "permMissing": {
+    "message": "Firefox does not have access to $ORIGIN$ yet. Press Connect to grant it.",
+    "placeholders": {
+      "origin": {
+        "content": "$1"
+      }
+    }
+  },
+  "permInvalidUrl": {
+    "message": "That does not look like a full address. Include https:// and no path."
+  },
+  "testOkCreated": {
+    "message": "Connection works. The folder did not exist, so it was created."
+  },
+  "createFolder": {
+    "message": "Create folder"
+  },
+  "folderCreated": {
+    "message": "Folder created."
+  },
+  "useThisFolder": {
+    "message": "Use this folder"
+  },
+  "newFolderName": {
+    "message": "New folder name"
+  },
+  "pickerRoot": {
+    "message": "Home"
+  },
+  "historyBrowseHeading": {
+    "message": "Saved snapshots"
+  },
+  "historyEmpty": {
+    "message": "No snapshots yet. One is saved the first time a sync uploads a change."
+  },
+  "historyLoading": {
+    "message": "Loading…"
+  },
+  "historyBack": {
+    "message": "Back to snapshots"
+  },
+  "historyTabCount": {
+    "message": "$N$ tabs",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "historyShowTabs": {
+    "message": "Show tabs"
+  },
+  "historyRestored": {
+    "message": "Restored."
+  },
+  "historyRefresh": {
+    "message": "Refresh"
+  },
+  "syncFailConflict": {
+    "message": "Another computer was writing at the same time. The next sync will pick it up."
+  },
+  "testOkNoEtag": {
+    "message": "Connection works, but the server does not return version tags. Editing the same group on two computers at once may lose one of the changes."
+  },
+  "testOkNoIfMatch": {
+    "message": "Connection works, but the server ignores conditional writes. Editing the same group on two computers at once may lose one of the changes."
+  },
+  "setupDeviceHint": {
+    "message": "You will see this name when browsing history from your other computers."
+  },
+  "setupContinue": {
+    "message": "Continue"
+  },
+  "navSetup": {
+    "message": "Setup"
+  },
+  "errorAt": {
+    "message": "at $TIME$",
+    "placeholders": {
+      "time": {
+        "content": "$1"
+      }
+    }
+  },
+  "minutesOption": {
+    "message": "$N$ minutes",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "syncFailSchema": {
+    "message": "The data on the server was written by a newer version of this extension. Update it, or clear the folder to start over."
+  },
+  "runDiagnostics": {
+    "message": "Test how the server handles writes"
+  },
+  "runDiagnosticsHint": {
+    "message": "Writes a scratch file, tries every kind of conditional write, then deletes it. Copy the result if something is not working."
+  },
+  "testOkBrokenEtag": {
+    "message": "Connection works, but something between Firefox and Nextcloud is rewriting version tags — often a reverse proxy that compresses responses. Syncing works; simultaneous edits on two computers may lose one change. Disabling compression or ETag rewriting for this path fixes it."
+  },
+  "lastFailureTrace": {
+    "message": "Requests from the last failed sync"
+  },
+  "copyDiagnostics": {
+    "message": "Copy diagnostics"
+  },
+  "copied": {
+    "message": "Copied"
+  },
+  "setupStep": {
+    "message": "Step $N$ of 3",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "setupNameHeading": {
+    "message": "Name this computer"
+  },
+  "setupDestPrompt": {
+    "message": "Pick a destination below and connect it. Then continue."
+  },
+  "setupEncPrompt": {
+    "message": "Decide now whether your tab titles and addresses are encrypted before they leave this computer."
+  },
+  "setupSkipEncryption": {
+    "message": "Continue without encryption"
+  },
+  "samePasswordEverywhere": {
+    "message": "Use the same master password on every computer. It is what lets them read each other's groups."
+  },
+  "encStateChangedElsewhere": {
+    "message": "The master password was changed on another computer. Syncing is paused until you enter the new one here."
+  },
+  "syncPausedLocked": {
+    "message": "Syncing is paused until you enter the master password."
+  },
+  "encExistingServer": {
+    "message": "Your groups on the server are already encrypted. Enter the master password you chose on your other computer."
+  },
+  "webdavModeNextcloud": {
+    "message": "Nextcloud or ownCloud"
+  },
+  "webdavModeNextcloudHint": {
+    "message": "Sign in through your server. No password is stored."
+  },
+  "webdavModeGeneric": {
+    "message": "Any other WebDAV server"
+  },
+  "webdavModeGenericHint": {
+    "message": "Synology, kDrive, Fastmail, Apache mod_dav. Needs the full WebDAV address and a login."
+  },
+  "davUrl": {
+    "message": "WebDAV address"
+  },
+  "davUrlHint": {
+    "message": "The full address of your WebDAV collection, for example https://example.com/dav or https://example.com/remote.php/dav/files/me"
+  },
+  "username": {
+    "message": "Username"
+  },
+  "password": {
+    "message": "Password"
+  },
+  "testFailAuthToken": {
+    "message": "The server rejected the token. Check that it matches the one configured on the server, and that the server passes the Authorization header through to the script."
+  },
+  "testFailNoCredentials": {
+    "message": "No token has been entered for this destination yet."
+  },
+  "backendConfigured": {
+    "message": "configured"
+  },
+  "backendLastSync": {
+    "message": "last synced $WHEN$",
+    "placeholders": {
+      "when": {
+        "content": "$1"
+      }
+    }
+  },
+  "diagnoseUnavailable": {
+    "message": "This destination has no write test."
+  },
+  "deleteSnapshot": {
+    "message": "Delete"
+  },
+  "deleteDevice": {
+    "message": "Remove this computer"
+  },
+  "deleteDeviceConfirm": {
+    "message": "Remove it and its snapshots?"
+  },
+  "deleteDeviceHint": {
+    "message": "Its snapshots are deleted and it disappears from the list. Groups it shared stay: they belong to everyone."
+  },
+  "confirmOnce": {
+    "message": "Sure?"
+  },
+  "deleted": {
+    "message": "Deleted"
+  },
+  "setupDeviceHintShort": {
+    "message": "this computer"
+  },
+  "popupDeviceChanged": {
+    "message": "$DEVICE$ has changed",
+    "placeholders": {
+      "device": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupDeviceChangedWhen": {
+    "message": "updated $WHEN$",
+    "placeholders": {
+      "when": {
+        "content": "$1"
+      }
+    }
+  },
+  "popupOpenHere": {
+    "message": "Open here"
+  },
+  "popupReplaceHere": {
+    "message": "Replace mine"
+  },
+  "popupIgnore": {
+    "message": "Do nothing"
+  },
+  "popupOpenHereTitle": {
+    "message": "Adds its groups to the ones already open here. Yours are untouched."
+  },
+  "popupReplaceHereTitle": {
+    "message": "Closes the groups open here and opens that computer's instead. A snapshot is saved first, so it is recoverable from history."
+  },
+  "popupIgnoreTitle": {
+    "message": "Dismisses the notice. You will be asked again only when that computer changes something new."
+  },
+  "popupApplied": {
+    "message": "$OPENED$ opened, $CLOSED$ closed",
+    "placeholders": {
+      "opened": {
+        "content": "$1"
+      },
+      "closed": {
+        "content": "$2"
+      }
+    }
+  },
+  "deviceNameHeading": {
+    "message": "Name this computer"
+  },
+  "deviceNameHint": {
+    "message": "This becomes the name of its file on the server. Letters, digits, - and _ only; spaces become underscores."
+  },
+  "deviceNameFile": {
+    "message": "Its file will be $FILE$",
+    "placeholders": {
+      "file": {
+        "content": "$1"
+      }
+    }
+  },
+  "deviceNameFree": {
+    "message": "This name is free."
+  },
+  "deviceNameMine": {
+    "message": "This is already this computer's file. It will carry on where it left off."
+  },
+  "deviceNameTaken": {
+    "message": "Another computer is already using this name, last written $WHEN$. Using it anyway means taking over that file, which is what you want after a reinstall.",
+    "placeholders": {
+      "when": {
+        "content": "$1"
+      }
+    }
+  },
+  "deviceNameUseAnyway": {
+    "message": "Use this name anyway"
+  },
+  "deviceNameInvalid": {
+    "message": "Choose a name using letters, digits, - or _."
+  },
+  "deviceNameChange": {
+    "message": "Change name"
+  },
+  "deviceRenameHint": {
+    "message": "The file on the server is renamed too, with its snapshots. Nothing is lost."
+  },
+  "devicesUnreadable": {
+    "message": "Sealed with a different master password and cannot be opened here: $LIST$",
+    "placeholders": {
+      "list": {
+        "content": "$1"
+      }
+    }
+  },
+  "quotaExceeded": {
+    "message": "Firefox Sync is full. It allows about 100 KB per extension, which a large session can exceed. Use a server destination for more room, or sync fewer groups."
+  }
+}

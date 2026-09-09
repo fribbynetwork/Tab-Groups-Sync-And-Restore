@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+
+<div class="head">
+  <div class="head-text">
+    <p class="last-sync" id="lastSync"></p>
+    <p class="error" id="errorLine" hidden></p>
+    <button type="button" class="btn btn-quiet btn-small" id="copyDiag" data-i18n="copyDiagnostics" hidden></button>
+  </div>
+  <button type="button" class="btn btn-primary" id="syncNow" data-i18n="popupSyncNow"></button>
+</div>
+
+<div class="unlock" id="unlockBox" hidden>
+  <p class="unlock-prompt" id="unlockPrompt"></p>
+  <div class="unlock-row">
+    <input type="password" id="unlockPass" autocomplete="current-password">
+    <button type="button" class="btn btn-primary btn-small" id="unlockBtn" data-i18n="popupUnlock"></button>
+  </div>
+  <p class="unlock-error" id="unlockError" hidden></p>
+</div>
+
+<!-- One block per computer whose file changed since this one last decided. -->
+<div id="pendingList"></div>
+
+<p class="notice-line" id="unreadableLine" hidden></p>
+
+<div class="empty" id="emptyState" hidden>
+  <p data-i18n="popupNoBackend"></p>
+</div>
+
+<section class="list-section" id="historySection" hidden>
+  <h2 data-i18n="popupGroupHistory"></h2>
+  <div class="list" id="historyList"></div>
+</section>
+
+<section class="list-section">
+  <h2 data-i18n="popupRecentlyClosed"></h2>
+  <div class="list" id="closedList"></div>
+</section>
+
+<footer class="foot">
+  <button type="button" class="btn btn-quiet" id="openOptions" data-i18n="popupOpenOptions"></button>
+</footer>
+
+<script type="module" src="popup.js"></script>
+</body>
+</html>
