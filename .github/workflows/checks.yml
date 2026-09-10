@@ -16,27 +16,22 @@ jobs:
       - run: npm install --no-save eslint@9
       - run: npx eslint .
 
-  manifest:
+  package:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: manifest and locales are valid JSON
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: build and validate exactly as AMO will
         run: |
-          for f in extension/manifest.json extension/_locales/*/messages.json; do
-            python3 -c "import json,sys; json.load(open('$f'))" || exit 1
-          done
-      - name: locales carry the same keys
-        run: |
-          python3 - <<'PY'
-          import json, sys
-          en = json.load(open('extension/_locales/en/messages.json'))
-          it = json.load(open('extension/_locales/it/messages.json'))
-          missing = set(en) ^ set(it)
-          if missing:
-              print('locale keys out of step:', sorted(missing))
-              sys.exit(1)
-          print(len(en), 'keys, aligned')
-          PY
+          npm install --no-save addons-linter
+          chmod +x ./build.sh
+          ./build.sh
+          # AMO rejects a package whose manifest sits inside a folder, and the
+          # rejection message points at packaging rather than at the cause.
+          unzip -l tab-groups-sync-restore-*.zip | grep -q ' manifest.json$'
+          npx addons-linter tab-groups-sync-restore-*.zip
 
   package:
     runs-on: ubuntu-latest

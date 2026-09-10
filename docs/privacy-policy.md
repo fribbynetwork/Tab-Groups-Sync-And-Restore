@@ -1,5 +1,4 @@
 # Privacy Policy — Tab Groups Sync & Restore
-
 *Last updated: 9 September 2026*
 
 ## The short version
@@ -64,8 +63,7 @@ Encryption is optional and we recommend it, particularly on a server you do not
 control.
 
 When it is enabled, tab addresses and titles are encrypted on your computer,
-with AES-GCM, **before** they are uploaded. Anyone with access to the server —
-including the operator — sees only unreadable data.
+with AES-GCM, **before** they are uploaded. Anyone with access to the server — including the operator — sees only unreadable data.
 
 * Your master password is **never transmitted** and never stored. It is stretched
   with PBKDF2 into a key held only on your computer, in a form the extension
