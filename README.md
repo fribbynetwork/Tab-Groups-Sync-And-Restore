@@ -21,6 +21,30 @@ fills that gap, without requiring you to trust anyone's cloud but your own.
   mistake can be brought back.
 - **English and Italian.**
 
+## What it looks like
+
+Screenshots are of the Italian interface; the extension ships in English and
+Italian and follows the browser's language.
+
+**Choosing where your groups are stored.** Each destination keeps its own
+settings, so switching between them and switching back costs nothing.
+
+![Choosing a destination](docs/images/destinations.png)
+
+**Encryption is optional and yours.** The passphrase never leaves the computer.
+Changing it rewrites every file on the server; the other computers are asked for
+the new one rather than failing quietly.
+
+![Master password settings](docs/images/encryption.png)
+
+**Not everything has to travel.** The group filter is per computer, so the same
+folder can hold a shared base while each machine keeps what belongs only to it.
+Tabs outside a group never leave the machine at all.
+
+![Choosing which groups to sync](docs/images/group-filter.png)
+
+---
+
 Requires Firefox 140 or later. The `tabGroups` API landed in 139, but 140 is
 where `data_collection_permissions` is honoured, and an install that silently
 drops the data-collection notice is not one worth allowing.
@@ -80,6 +104,10 @@ moment the user clicks the thing.
 - [How it works](docs/design.md) — data model, merge rules, encryption
 - [Self-hosting](docs/self-hosting.md) — running your own endpoint
 - [Testing](docs/testing.md) — how to exercise it without two computers
+- [Privacy policy](docs/privacy-policy.md) — what is handled, and where it goes
+- [AMO listing copy](docs/amo-listing.md) and
+  [reviewer notes](docs/reviewer-notes.md) — kept in the repo so they stay in
+  step with the code they describe
 
 ## License
 

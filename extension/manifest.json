@@ -26,7 +26,6 @@
     "sessions",
     "contextualIdentities"
   ],
-  "optional_permissions": [],
   "optional_host_permissions": [
     "https://*/*",
     "http://*/*"
